@@ -1,0 +1,22 @@
+\subsection*{a}
+According to the Perceptron algorithm initially $w_0 = 0$, thus given $X\in \text{\{}-1,1\text{\}}^n$ $\forall x \in X: w*x = 0$.
+There are two major cases:
+\begin{enumerate}
+	\item $\forall x \in S: maj(x) = 1$ - then $sign(w*x) = sign(0*x) = 1$ will be consistent with all items in example set S
+	\item $\exists x \in S: maj(x) = -1$ - in this case algorithm will detect inconsistency of linear separator, and perform at least one correction of weights 
+\end{enumerate}
+
+\subsection*{b}
+Vector $w = \text{\{}\dfrac{1}{\sqrt{n}}\text{\}}^n$ is such, that $sign(<w,x>)$ is consistent with $maj(x)$.
+According to the theorem 1.10 we will require at most 
+$\dfrac{1}{\lambda^2}$ 
+steps to compute linear separator, where $\lambda$ is a margin for the linear separator with orthogonal vector $w$. 
+$\lambda = min_{x \in S}(\dfrac{|<w,x>|}{||w||}) = min(\dfrac{|\sum_i(\dfrac{1}{\sqrt{n}} \cdot x_i)|}{||w||}) = \dfrac{1}{\sqrt{n}} \cdot min(|\sum_i x_i|)$. 
+Given that $\exists x: \text{half of the values in $x$ = -1/n, and other half is +1/n}$, 
+then $min(|\sum_i x_i|) = 1/n$ and $\lambda = \dfrac{1}{n\cdot\sqrt{n}}$. 
+Given this we will require at most $n^3$ steps to find linear separator, consistent with S.
+
+\subsection*{c}
+Given $\hat{S} = \hat{X}^k$, where $\hat{X} \in R^n$. 
+We can convert $\hat{S} \text{ to }  S$ using function $convert: R^n \to $\{$-1,1$\}$^n$, such that $convert(\hat{x}) = x$, where $x_i = sign(\hat{x}_i)$ . 
+As soon as $maj(\hat{X}) = maj(X)$, and we can find linear separator, consistent with S, then this linear separator is consistent with $\hat{S}$ too.
