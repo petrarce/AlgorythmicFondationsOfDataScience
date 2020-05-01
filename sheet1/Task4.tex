@@ -23,13 +23,15 @@ cluster 3: center=[8.400, 5.600]; points=[D E F G H ]
 \end{verbatim}
 \newpage
 \subsection*{b}
+Points, cluster means and cluster regions are represented on the Fig. \ref{fig:drawing}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=\linewidth, angle=90]{task4b.jpeg}
-	\caption{Cluster centers and their respective areas}
+	\includegraphics[width=0.5\linewidth, angle=90]{task4b.jpeg}
+	\caption{Points, final cluster means and regions}
+	\label{fig:drawing}
 \end{figure}
-Given points $A$ and $B$, and hyperplane $L$, which is perpendicular to segment $AB$ and intersects $AB$ in the middle
-and points A and N lie on the same side of the hyperplane L prove, that $\forall points N on the same side with A w.r.t. hiperplane L: ||A-N|| < ||B-N||$.
+\\
+Given points $A$ and $B$, and hyperplane $L$, which is perpendicular to segment $AB$ and intersects $AB$ in the middle. Prove, that $\forall N$ on the same side with $A$ w.r.t. hyperplane $L$: $||A-N|| < ||B-N||$.
 
 Suppose we have projection N on AB: $\hat{N} = (N * \dfrac{(B-A)}{||B-A||}) \cdot \dfrac{B-A}{||B-A||}$.
 $||A\hat{N}|| < ||B\hat{N}||$ while projection is parallel to hyperplane L and N and A are above the hyperplane by definition.
@@ -40,8 +42,8 @@ Thus by the n-dimensional Pythagorean theorem:
 \end{enumerate} 
 Then $||AN||^2 = ||A\hat{N}||^2 + ||BN||^2 -||B\hat{N}||^2$.
 $||AN||^2 - ||BN||^2 = ||A\hat{N}||^2  - ||B\hat{N}||^2 < 0$, thus $||AN|||^2 < ||BN||^2$ and $||AN|| < ||BN||$.
-
-\subsection{c}
+\newpage
+\subsection*{c}
 Given points E,F,G as an initial cluster means the calculation gives the next results
 \begin{verbatim}
 Iteration 0:
@@ -59,4 +61,17 @@ cluster 1: center=[2.667, 10.333]; points=[A B C ]
 cluster 2: center=[6.333, 4.000]; points=[D E F ]
 cluster 3: center=[11.500, 8.000]; points=[G H ]
 \end{verbatim}
-\subsection{d}
+\newpage
+\subsection*{d}
+Suppose, there exists cluster $C=\{A,G\}$ with center $\dfrac{A+G}{2} = \{6,10\}$.
+Then there should be at least 2 clusters, that separate A,G from other points.
+One of this cluster contains either:
+\begin{enumerate}
+	\item \{H\} with center in $\hat{C}=\{13,8\}$
+	\item \{H, F\} with center in $\hat{C}=\{10,5.5\}$
+	\item \{H, F, D\} with center in $\hat{C}=\{8.33, 5\}$
+	\item \{H, F, D, E\} with center in $\hat{C}=\{8,5\}$
+\end{enumerate}
+
+However in all cases distance from $||CG|| > ||\hat{C}G||$, which contradicts an assumption.
+Thus cluster $C=\{A,G\}$ is impossible.

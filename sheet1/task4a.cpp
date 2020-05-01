@@ -11,7 +11,10 @@ typedef struct
 	vector<int> ptList;
 	Vector2d center;
 	void recalcCenter(const vector<Vector2d>& points){
-		assert(ptList.size() != 0);
+		if(ptList.size() == 0)
+		{
+			return; 
+		}
 		center = Vector2d(0,0);
 		for(const auto& pt : ptList)
 		{
@@ -33,11 +36,16 @@ typedef struct
 int main(int argc, char** argv)
 {
 
-	assert(((argc - 4)%2) == 0);
-	assert((argc-4) / 2 > 3);
+	assert(((argc-1)%2) == 0);
+	assert((argc-1) / 2 > 6);
 
+	vector<Vector2d> initialClusterCenters;
+	for(int i = 1;  i < 7; i+=2)
+	{
+		initialClusterCenters.push_back(Vector2d(stod(argv[i]), stod(argv[i+1])));
+	}
 	vector<Vector2d> inp_points;
-	for(int i = 4; i < argc; i+=2)
+	for(int i = 7; i < argc; i+=2)
 	{
 		Vector2d newPoint = Vector2d(stod(argv[i]), stod(argv[i+1]));
 		inp_points.push_back(newPoint);
@@ -50,16 +58,16 @@ int main(int argc, char** argv)
 	}
 
 	Cluster c1{
-		vector<int>({stoi(argv[1])}),
-		points[stoi(argv[1])]
+		{},
+		initialClusterCenters[0]
 	};
 	Cluster c2{
-		vector<int>({stoi(argv[2])}),
-		points[stoi(argv[2])]
+		{},
+		initialClusterCenters[1]
 	};
 	Cluster c3{
-		vector<int>({stoi(argv[3])}),
-		points[stoi(argv[3])]
+		{},
+		initialClusterCenters[2]
 	};
 
 	bool changed = true;
@@ -98,7 +106,4 @@ int main(int argc, char** argv)
 			changed = false;
 
 	}
-
-
-
 }
