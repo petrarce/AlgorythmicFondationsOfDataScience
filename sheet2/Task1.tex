@@ -1,0 +1,39 @@
+\subsection*{a}
+$E(X_2) = E(I \cdot J) = \sum_{(i,j)}{i \cdot j \cdot Pr(I = i, J = j)}$. As soon as throwing dice is independent actions, then $Pr(I = i, J = j) = Pr(I = i) \cdot Pr(J = j)$ and  
+$E(X_2) = \sum_{(i,j)} i\cdot j \cdot Pr(I=i) \cdot Pr(J=j) = \sum_i{i \cdot Pr(I=i) \cdot \sum_j{j \cdot Pr(J=j)}} =
+E(I) \cdot E(J)$. Given that we have uniform distribution of getting value from $[1,..,6]$, then probability of getting any value is $\dfrac{1}{6}$ and $E(I) = E(J) = \sum_{i=1}^6{i \cdot \dfrac{1}{6}} = \dfrac{1}{6} \cdot \dfrac {6\cdot (6+1)}{2} = \dfrac{7}{2}$ implies $E(X_2) = \dfrac{7}{2} \cdot \dfrac{7}{2} = \dfrac{49}{4} = 12.25$
+
+Given, that 
+$Var(X_2) = E(X_2^2) - E(X_2)^2$, and $E(X_2^2) = 
+\sum_{(i,j)}{i\cdot i\cdot j\cdot j\cdot Pr(I = i, J = j)} = 
+\sum_{j=1}^6 {j \cdot j \cdot Pr(J=j) \cdot \sum_{i=1}^6 i\cdot i\cdot Pr(I=i)} = 
+E(i^2)\cdot E(j^2)$.\\
+$E(i^2) = E(j^2) = \dfrac{1}{6} \cdot \dfrac{6\cdot (36+1)}{2} = \dfrac{37}{2} = 18.5$ and $Var(I\cdot J) = 18.5^2 - 12.25^2 = 192.1875$
+
+\subsection*{b}
+$E(X_n) = E(\prod_{i=1}^n X_i) = \prod_{i=1}^n E(X_i) = E(X_1)^n = \left(\dfrac{7}{2}\right)^n$\\
+$E(X_n^2) = E(\prod_{i=1}^n X_i^2) = \prod_{i=1}^n E( X_i^2) = E(X_1^2)^n = 18.5^n$\\
+$Var(X_n) = 18.5^n - \left(\dfrac{7}{2}\right)^{2\cdot n}$\\
+
+\subsection*{c}
+Let $X_i$ be an indicator variable such, that 
+$X_i=
+\begin{cases}
+	1, & \text{if i-th throw of the dice gives 1}\\
+	0, & \text{otherwise}
+\end{cases}$.\\
+The total expectation of number of ones after throwing dice 200 times is 
+$E(\sum_{i=1}^{200} X_i) = \sum_{i=1}^{200} E(X_i) = 200\cdot E(X_1) = \dfrac{200}{6} = 33.33...$ and variance
+$Var(\sum(X_i)) = \sum Var(X_i) = \sum_{i=1}^{200} (\dfrac{1}{6} - \dfrac{1}{36}) = 200 \cdot \dfrac{5}{36} = 27.7$\\
+\textbf{Chebyshev bound}\\
+$Pr(|X - E(X)| \geq b) \leq \dfrac{Var(X)}{b^2}$.\\
+Suppose $X = [0,..,7]$, then $|X - E(X)| = [26.33,..,33.33]$
+and  $Pr(|X - E(X)| \geq 26.33) \leq \dfrac{27.7}{26.33^2} = 0,04$, which means that $Pr(X<8) \leq 0.04$.\\
+
+\textbf{Chernoff bound}\\
+$Pr(X \leq (1-c)\cdot E(X)) \leq e^{\left(-\dfrac{E(X)\cdot c^2}{2}\right)}$, where $(1-c)\cdot E(X) = 7 \implies c = 1 - \dfrac{7}{33.33} = 0.79$, thus $Pr(X \leq 7) \leq e^{\left(-\dfrac{33.3\cdot 0.79^2}{2}\right)} = 0.000030413$\\
+
+\textbf{Hoeffding bound}\\
+$Pr(X \leq E(X) - d\cdot 200) \leq e^{(-2\cdot 200 \cdot d^2)}$. Here we take $E(X) - d\cdot 200 = 7 \implies d = -\dfrac{7-33.3}{200} = 0.1315$ thus $Pr(X \leq 7) \leq e^{(-2\cdot 200 \cdot 0.1315^2)} = 0.00099$\\
+
+Among Chebyshev/Chernoff/Hoeffding bounds Chernoff gives the most tight bound for $Pr(X<8) \leq 0.000030413$.
