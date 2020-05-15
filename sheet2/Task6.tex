@@ -1,0 +1,45 @@
+
+Given is a random multiplicative weight update problem with 3 experts and 4 events. The event set is defined as $j^{(t)}$=121234 and the loss matrix L=$ \begin{bmatrix}
+1 & 1 & 0 & 0\\
+0 & 1 & 1 & 1\\
+1 & 0 & 1 & 0.5\\
+\end{bmatrix}
+$
+The problem asks to formulate the weight vector for each of the 6 events and provide p for t=6. Problem is solved in Matlab and the initial weights for each experts is assigned as 1. Then depending on the event j, for following expert i, we have a certain penalty $ L_{i,j} $, which manifests as a reduction in weight if the prediction is 
+wrong, otherwise on the contrary. 
+\\
+The weight vector $w^{(t)}$ for respective experts 1,2 and 3 as $w_1$,$ w_2$ and $w_3$ for each time steps are given by:
+
+$w^{(1)}$ = $\begin{Bmatrix}
+1 & 1 & 0
+\end{Bmatrix}$
+		
+$w^{(2)}$=$ \begin{Bmatrix}	
+0.5000  & 1.0000  & 0.5000
+\end{Bmatrix}$
+
+
+
+$w^{(3)}$ = $ \begin{Bmatrix}	0.2500 &   0.5000 &   0.5000	\end{Bmatrix}$
+
+
+
+$w^{(4)}$ = $\begin{Bmatrix}	0.1250   & 0.5000   & 0.2500	\end{Bmatrix}	$
+
+
+
+$w^{(5)}$ =$  \begin{Bmatrix}	0.0625   & 0.2500  &  0.2500		\end{Bmatrix}$
+
+
+
+$w^{(6)}$ = $  \begin{Bmatrix}	0.0625   & 0.1250   & 0.1250	\end{Bmatrix}	$
+
+
+
+$w^{(7)}$ = $\begin{Bmatrix}	0.0625   & 0.0625  &  0.0884\end{Bmatrix}$
+\\
+Changing the order of events would affect the way we choose the discount factor for each expert and since the loss matrix is not symmetrical , for finite iterations the weights should be different given each expert bias has been chosen randomly and chaning it would change the outcome and hence the final weight.
+
+$p^{(6)}$=$\begin{Bmatrix} 0.2000   &0.4000 &   0.5000\end{Bmatrix}$
+
+
