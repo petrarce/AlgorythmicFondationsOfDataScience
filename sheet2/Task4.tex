@@ -1,5 +1,24 @@
 \subsection{a}
-The VC-Dim for this interval is equal to: \textbf{}. (explanation to be added)
+Suppose we pick 12 elements 
+$\Sigma = R^{12}$ such that 
+$\forall i,j \in [12]: \sigma_i \neq \sigma_j$.
+Then we can costruct suxh set 
+$X$, such that $X = \Sigma$, and in this case $\forall i \in [12]: h_X(\sigma_i) = 1$.
+On the other hand we can construct set X, such that 
+$X intersection \Sigma = \{\}$. Moreover we can construct such X, that  any valuation of 
+$(h_X(\sigma_1), .., h_X(\sigma_{12}))$ is possible, thus there could be total $2^{12}$ possible sets X, that will give a different $(h_X(\sigma_1), .., h_X(\sigma_{12}))$ valuations.\\
+Suppose we pick 13 elements 
+$\Sigma = R^{13}$, such that 
+$\forall i,j \in [13], i \neq j, \and \sigma_i, \sigma_j \ in \Sigma: \sigma_i \neq \sigma_j$. Then  forall possible sets X 
+$\exists \sigma \in \Sigma: \sigma \not \in X$. Which means valuation 
+$\forall i\in [13]: h_X(\sigma_i) = 1$ is impossible, thus there is at most 
+$2^{13} - 1 < 2^{13}$ possible valuations.
+Suppose we pick 13 elements, where some elements are equal, such that 
+$\exists i,j \in [13], i\neq j: \sigma_i = \sigma_j$. This means, that among all possible valuations 
+$\{0,1\}^13$ i-th and j-th bits are the same, and thus total number of valuations is at most 
+$\dfrac{2^{13}}{2} = 2^{12} < 2^{13}$.\\
+This means, that the VC-dimentions for this class of hipothesis is equal to 12.
+
 \subsection{b}
 Firstly, it is important to set up our goal. In Vapnik–Chervonenkis dimension, we should search for the largest set shattered by a hypothesis class ($H$). In this case, our $H$ is a circle and everything inside of it is valued 1. Otherwise, it is valued 0. Being so: \\
 $$
