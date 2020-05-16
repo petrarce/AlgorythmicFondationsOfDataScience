@@ -1,8 +1,8 @@
-\subsection{a}
+\subsection*{a}
 Suppose we pick 12 elements 
 $\Sigma = R^{12}$ such that 
 $\forall i,j \in [12]: \sigma_i \neq \sigma_j$.
-Then we can costruct suxh set 
+Then we can construct such set 
 $X$, such that $X = \Sigma$, and in this case $\forall i \in [12]: h_X(\sigma_i) = 1$.
 On the other hand we can construct set X, such that 
 $X intersection \Sigma = \{\}$. Moreover we can construct such X, that  any valuation of 
@@ -15,11 +15,11 @@ $\forall i\in [13]: h_X(\sigma_i) = 1$ is impossible, thus there is at most
 $2^{13} - 1 < 2^{13}$ possible valuations.
 Suppose we pick 13 elements, where some elements are equal, such that 
 $\exists i,j \in [13], i\neq j: \sigma_i = \sigma_j$. This means, that among all possible valuations 
-$\{0,1\}^13$ i-th and j-th bits are the same, and thus total number of valuations is at most 
+$\{0,1\}^{13}$ i-th and j-th bits are the same, and thus total number of valuations is at most 
 $\dfrac{2^{13}}{2} = 2^{12} < 2^{13}$.\\
-This means, that the VC-dimentions for this class of hipothesis is equal to 12.
+This means, that the VC-Dim($H$)$ = 12$.
 
-\subsection{b}
+\subsection*{b}
 Firstly, it is important to set up our goal. In Vapnik–Chervonenkis dimension, we should search for the largest set shattered by a hypothesis class ($H$). In this case, our $H$ is a circle and everything inside of it is valued 1. Otherwise, it is valued 0. Being so: \\
 $$
 h_{a,b,r}(x,y)=
