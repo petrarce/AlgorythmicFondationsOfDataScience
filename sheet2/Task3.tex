@@ -1,0 +1,28 @@
+According to Occam's razor Theorem:
+\\
+\bigbreak
+$ m \leq \frac{1}{\Sigma} n (n\ln{\mid \Sigma \mid}+\ln{\frac{2}{\delta}})$
+\\
+\bigbreak
+Being:
+\begin{itemize}
+	\item $\epsilon = 0.05$
+	\item $\delta = 0.2$
+\end{itemize}
+As soon as decision trees can be described with:\\
+$n = K(\log{K}+\log{l}))$ bits\\
+\bigbreak
+when:
+\begin{itemize}
+	\item $K = 16$
+	\item $l = 6$
+	\item $\Sigma = \{0,1\} => \mid \Sigma \mid = 2$
+\end{itemize}
+Then:\\
+\bigbreak
+	$m \leq \frac{1}{\Sigma} (K(\log{K}+log{l})\log{2}+\log{\frac{2}{\frac{2}{10}}})$\\
+	\bigbreak
+	$ m \leq \frac{1}{2}(16(\log{(16*6)}*\log{2}+\log{10})) $\\
+	\bigbreak
+Finally:\\
+The lower bound on the number of training examples is approximately $\textbf{13}$. 
