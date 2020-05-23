@@ -1,0 +1,17 @@
+The central sphere will pick through the ball if its radius $r_c > \dfrac{l}{2}$.
+The distance from the central ball to the corner of the $Q^d$ according to the 
+Pythagorean is :
+\begin{equation}
+dist^d_c = \sqrt{\sum_{i=1}^d \dfrac{l^2}{4}} = \dfrac{\sqrt{d}}{2} \cdot l\label{eq:dist1}
+\end{equation}
+Also distance from the center of the central sphere to the corner is:
+\begin{equation}
+dist^d_c = r_c + r_s + dist_s^d\label{eq:dist2}
+\end{equation}
+where $dist_s^d$ - a distance from the center of corner sphere to the nearest corner of $Q^d$ and
+			$r_s$ - radius of the corner sphere.\\
+By the Pythagorean $dist_s^d = \sqrt{\sum_{i=1}^d \dfrac{l^2}{8}} = \dfrac{\sqrt{d}}{4}\cdot l$ 
+and by definition $r_s = \dfrac{l}{4}$. Taking together equation \eqref{eq:dist1} and \eqref{eq:dist2} we have next equality:
+$r_c + \dfrac{l}{4} + \dfrac{\sqrt{d}}{4}\cdot l = \dfrac{\sqrt{d}}{2} \cdot l \implies r_c = l\cdot \left(\dfrac{\sqrt{d}}{2} - \dfrac{\sqrt{d}}{4} - \dfrac{1}{4} \right)$. Thus for $r_c > \dfrac{l}{2}$ we need 
+$\dfrac{\sqrt{d}}{2} - \dfrac{\sqrt{d}}{4} - \dfrac{1}{4} > \dfrac{1}{2} \implies d > 9$. Thus if $d = 10$ 
+the central sphere will peek trough the surface of Q. 
