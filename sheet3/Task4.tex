@@ -1,0 +1,14 @@
+Let B=$A^T$A and C= A$A^T$. \\
+Let the Eigen value of B be $\lambda$ and the corresponding Eigen Vector be X, Then \\
+BX=$\lambda$ X  $\Rightarrow$  $A^T$A= $\lambda$ X \\
+Premultiplying the equation with A gives: \\
+A$A^T$AX=$\lambda$ AX    $\Rightarrow$ CY=$\lambda$ Y
+where Y=AX \\
+Hence, B and C have the same eigen value $\lambda$. \\\\
+If A $\in$ $R^{m \times n}$ , then $A^TA$ $\in$ $R^{n \times n}$, has n eigen values and likewise A$A^TA $ $\in$  $R^{m \times m}$ has m eigen values.\\
+If the rank(A) is equal to k, then A has only  non-zero eigenvalues and using Singular Value Decomposition,\\
+A= $U_{m \times k} $ $\gamma_{k \times k} $ $V^T_{k \times n} $ \\
+$A^T$A= $V_{n \times k}$ $\gamma^2_{k \times k}$$ V^T_{k \times n}$\\
+A$A^T$= $U_{m \times k}$ $\gamma^2_{k \times k}$ $U^T_{k \times m}$\\
+Using the SVD, it can be seen that the rank of eigen value decomposition, for $\lambda$ $\in$ $\gamma$, for non zero entries of eigen values, the maximum dimension for geometric multiplicities=k holds true.
+
