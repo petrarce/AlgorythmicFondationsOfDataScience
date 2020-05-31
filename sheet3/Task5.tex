@@ -1,0 +1,21 @@
+\subsection*{a}
+$\implies$ direction: Suppose 
+$\exists B: A = B B^T$ and 
+$\exists (\lambda, u) - \text{eigen-pair of A}$.\\ 
+Then 
+$Au = \lambda  u = BB^Tu (\text{multiply both sides by $u^T$})\implies u^TBB^Tu = u^T\lambda u, (B^Tu)^T B^Tu = \lambda <u,u> = \lambda ||u||^2 = ||B^Tu||^2 \implies \lambda = \dfrac {||B^Tu||^2}{||u||^2} \geq 0$ 
+- thus all eigenvalues of A nonnegative, which means that A is psd.\\
+$\impliedby$ direction: Suppose A is psd. Then there exists Cholesky decomposition of A: $A = LL^T$, where L is lover triangular matrices, which implies, that for psd A $\exists B = L, s.t. A = BB^T$
+\subsection*{b}
+Suppose we have matrix $A = $ 
+$\begin{pmatrix}
+a & b\\
+b & c
+\end{pmatrix}$
+Then to find eigenvalues we have to find roots of $det(A - \lambda I) = \lambda^2 - (a+c)\lambda + a\cdot c - b^2$.
+Suppose $a = 1 \text{ and } c = 1$, then $\lambda = \pm b + 1$. This means, that $\forall b > 1$ matrix $A = $
+$\begin{pmatrix}
+1 & b\\
+b & 1
+\end{pmatrix}$
+ is not psd, while one of the eigenvalues is $\lambda = -b + 1 < 0$.
