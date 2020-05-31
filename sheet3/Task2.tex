@@ -24,5 +24,4 @@ $vol(B^l_1) \leq 2\cdot \sum_{i=1}^{k}(t \cdot (1 - i\cdot t)^{l-1} \cdot vol(B^
 	(1 - i\cdot \dfrac{1}{k})^{l-1} \cdot 
 	vol(B^{l-1}_1)
 $. To prove, that $\lim_{l \to \infty} vol(B^l) = 0$ we need to prove, that for some $\exists k\in N_{>0}, c \in (0,1), n : \forall l > n \implies f_k(l) \leq c$ where $f_k(l) = 2\cdot \dfrac{1}{k} \cdot \sum_{i=1}^{k} (1 - i\cdot \dfrac{1}{k})^{l-1}$.\\ 
-Let's take $k = 2$ and $c = 0.5$. Then $f_2(l) = \sum_{i = 1}^{2} (1 - \dfrac{i}{2})^{l-1} \leq 2\cdot 0.5^{l-1}$. Taking $l > 1 \implies 2\cdot 0.5^{l-1} < 0.5$, which proofs, that  $\forall l > 1: f_2(l) \leq c $ and consequently $\lim_{l \to \infty} vol(B^l) = 0$.
- 
+Let's take $k = 2$ and $c = 0.5$. Then $f_2(l) = \sum_{i = 1}^{2} (1 - \dfrac{i}{2})^{l-1} \leq 2\cdot 0.5^{l-1}$. Taking $l > 3 \implies 2\cdot 0.5^{l-1} < 0.5$, which proofs, that  $\forall l > 3: f_2(l) \leq c $ and consequently $\lim_{l \to \infty} vol(B^l) = 0$.
