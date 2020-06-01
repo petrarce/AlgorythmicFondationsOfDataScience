@@ -3,25 +3,29 @@ $\implies$ \\
 $$\phi^{(t+1)}= \sum_{i}w_i^{(t+1)} $$\\
 =$$\sum_{i} w_i^{(t)}(1+\alpha r_i^{(t)})$$ \\
 Since,$ p_i^{(t)}$=$w_i^{(t)}$/$\phi_i^{(t)}$ \\
-=$$\sum_{i}w_i^{(t)} + \alpha\cdot \sum_{i=1}^{n}\sum_{s=1}^{t}p_i^{(t)}\cdot\phi^{(t)}\cdot r_i^{(s)} $$\\
-=$$\phi^{(t)}+ \alpha\cdot\phi^{(t)}\sum_{s=1}^{t}\sum_{i=1}^{n}p_i^{(t)}r_i^{(s)}$$
- =$$\phi_i^{(t)} (1 +\alpha\sum_{s=1}^{t}\sum_{(i=1)}^{n}p_i^{(t)}r_i^{(s)}) $$
+=$$\sum_{i}w_i^{(t)} + \alpha\cdot \sum_{i=1}^{n} p_i^{(t)}\cdot\phi^{(t)}\cdot r_i^{(t)} $$\\
+=$$\phi^{(t)}+ \alpha\cdot\phi^{(t)}\sum_{s=1}^{t}p_i^{(t)}r_i^{(t)}$$
+ =$$\phi_i^{(t)} (1 +\alpha\sum_{(i=1)}^{n}p_i^{(t)}r_i^{(t)}) \leq  \phi_i^{(t)} (1 +\alpha\sum_{(i=1)}^{n}\sum_{s=1}^{t}p_i^{(s)}r_i^{(s)})$$
 Using, i+x$\leq e^x $
-$$\leq \phi^{(t)}\cdot e^{\alpha\sum_{i}\sum_{s=1}^{t}p_i^{(t)}r_i^{(s)}}$$ \\
+$$\leq \phi^{(t)}\cdot e^{\alpha\sum_{i}\sum_{s=1}^{t}p_i^{(s)}r_i^{(s)}}$$ \\
 
 After T rounds, by simple induction for t, it can be shown that,
-$$\phi^{(T)}\leq \phi^{(1)}\cdot e^{\alpha\sum_{s=1}^{t}\sum_{i=1}^{n}p_i^{(t)}r_i^{s}}$$--------(1) 
+\begin{equation}
+	\phi^{(T)}\leq \phi^{(1)}\cdot e^{\alpha\sum_{s=1}^{t}\sum_{i=1}^{n}p_i^{(s)}r_i^{(s)}}
+\end{equation}
 \\\\
-Also, $\phi^{(1)}=n $ and for every i,  \\
-$\phi^{(T)}\geq w_i^{(T)}$ ( By induction)  \\
-Since, $ 1+\alpha x \geq (1 +\alpha)^{x} $, we have \\
-$\phi^{(T)} \geq (1+\alpha)^{\sum_{r_i^{(s)}}} $  ---------(2)
+Also, $\phi^{(1)}=n $ and for every i, 
+$\phi^{(T)}\geq w_i^{(T)} = \prod_{s=1}^t(1+\alpha\cdot r_i^{(s)})$ ( By induction).
+Since, $ 1+\alpha x \geq (1 +\alpha)^{x} $, we have:
+\begin{equation}
+	\phi^{(T)} \geq (1+\alpha)^{\sum_s{r_i^{(s)}}}
+\end{equation}
 
 Hence, we have the bound for the potential function from 1 and 2, \\
 $$n\cdot e^{\alpha\sum_{i=1}^{n}\sum_{s=1}^{t}p_i^{t}r_i^{(s)}} \geq \phi^{(t)} \geq (1+\alpha)^{\sum_{s=1}^{t}r_i^{(s)}}$$
 Taking logarithm, \\
-$$ln(n) + \alpha\sum_{i=1}^{n}\sum_{s=1}^{t}p_i^{(t)}r_i^{(s)} \geq \sum_{s=1}^{t} ln(1+\alpha) $$
+$$ln(n) + \alpha\sum_{i=1}^{n}\sum_{s=1}^{t}p_i^{(s)}r_i^{(s)} \geq ln(1+\alpha)\cdot \sum_{s=1}^{t} r_i^{(s)}  $$
 Also, $ ln(1+\alpha) \geq \alpha- \alpha^{2} $
 Hence, \\
 
-$$\sum_{i}\sum_{s=1}^{t}p_i^{t}r_i^{s} \geq -ln(n)/\alpha + \sum_{s=1}^{t}r_j^{s} (1-\alpha) $$
+$$\sum_{i}\sum_{s=1}^{t}p_i^{s}r_i^{s} \geq -ln(n)/\alpha + \sum_{s=1}^{t}r_j^{s} (1-\alpha) $$
