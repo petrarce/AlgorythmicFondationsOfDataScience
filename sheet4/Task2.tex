@@ -1,0 +1,28 @@
+\subsection*{a}
+\textbf{$\implies$ direction}\\
+Suppose that $\forall x \neq 0: x^T A x\geq 0$. As soon, as A is simmetric squared, 
+eigenpairs $\forall (u,\lambda) : u^T A u = u^T \lambda u = \lambda u^Tu = \lambda ||u||^2$.
+From here $\lambda = \dfrac{u^T A u}{||u||^2} \geq 0$ by initial assumption.
+
+\textbf{$\impliedby$ direction}\\
+Supporse that $\forall \lambda of A: \lambda \geq 0$.
+$\forall x \in R^n$ $x$ can be described through orthonormal base $U$, whilch are eigenvectors
+of A of unit length (while A is simmetric square mattrice, and thus diagonisable $U^TAU = \Lambda$
+where U is mattrice with columns as eigenvectors):
+\begin{equation}
+	x = \sum_{i=1}^n{\hat{x}_i \cdot u_i}
+\end{equation}
+Now lets take $x^T A x = x^T A \sum_{i=1}^n{\hat{x}_i \cdot u_i} = 
+	x^T \sum_{i=1}^n{\hat{x}_i \cdot A\cdot u_i} = x^T \sum_{i=1}^n{\hat{x}_i \cdot \lambda_i\cdot u_i}=
+	\sum_{i=1}^n{\lambda_i\cdot x^T \hat{x}_i \cdot  u_i} = 
+	\sum_{i=1}^n\lambda_i\cdot \sum_{j=1}^n (x_j \hat{x}_i \cdot  u_{i,j})=
+	\sum_{i=1}^n{\lambda_i\cdot \sum_{j=1}^n (\sum_{l=1}^n(\hat{x}_l\cdot u_{l,j}) \cdot \hat{x}_i \cdot  u_{i,j}})=
+	\sum_{i=1}^n{\lambda_i\cdot \sum_{j=1, l=1}^n \hat{x}_l\cdot u_{l,j} \cdot \hat{x}_i \cdot  u_{i,j}} =
+	\sum_{i=1}^n{\lambda_i\cdot \sum_{l=1}^n \left<\hat{x}_l\cdot u_l ,\hat{x}_i \cdot  u_i\right>}$
+As soon, as $U$ is orthonormal basis and $\forall l \neq i: u_l \perp u_i 
+\text{then}  \left<\hat{x}_l\cdot u_l ,\hat{x}_i \cdot  u_i\right> \neq 0 \equiv (l = i)$, 
+and thus $\sum_{i=1}^n{\lambda_i\cdot \sum_{l=1}^n \left<\hat{x}_l\cdot u_l ,\hat{x}_i \cdot  u_i\right>} =
+			\sum_{i=1}^n{\lambda_i\cdot \left<\hat{x}_i\cdot u_i ,\hat{x}_i \cdot  u_i\right>}=
+			\sum_{i=1}^n\lambda_i\cdot ||\hat{x}_i \cdot u_i||^2 =
+			\sum_{i=1}^n\lambda_i\cdot ||x||^2 \geq 0$
+Which proves, that $\forall \lambda \geq 0 \implies x^TAx \geq 0 $
