@@ -1,0 +1,187 @@
+\subsection*{a}
+Computation for matrix $M_1$:
+\begin{verbatim}
+input matrix:
+[  2,-12]
+[  1, -5]
+initial eigenvector: [0.7071,0.7071]
+
+(eval, evec) on 1 iteration: (-2.760560, [-0.9285,-0.3714])
+1 - |<evec@pre, evec>| after 1 iterations: 0.080855
+|evec - evec@pre| after 1 iterations: 1.959155
+
+(eval, evec) on 2 iteration: (-2.276180, [0.9417,0.3363])
+1 - |<evec@pre, evec>| after 2 iterations: 0.000702
+|evec - evec@pre| after 2 iterations: 1.999649
+
+(eval, evec) on 3 iteration: (-2.121423, [-0.9457,-0.3251])
+1 - |<evec@pre, evec>| after 3 iterations: 0.000071
+|evec - evec@pre| after 3 iterations: 1.999964
+
+(eval, evec) on 4 iteration: (-2.057253, [0.9473,0.3204])
+1 - |<evec@pre, evec>| after 4 iterations: 0.000012
+|evec - evec@pre| after 4 iterations: 1.999994
+
+(eval, evec) on 5 iteration: (-2.027834, [ -0.948,-0.3183])
+1 - |<evec@pre, evec>| after 5 iterations: 0.000003
+|evec - evec@pre| after 5 iterations: 1.999999
+\end{verbatim}
+Computation for matrix $M_2$:
+\begin{verbatim}
+input matrix:
+[ 1, 2, 0]
+[-2, 1, 2]
+[ 1, 3, 1]
+initial eigenvector: [0.5774,0.5774,0.5774]
+
+(eval, evec) on 1 iteration: (2.210365, [0.5071, 0.169,0.8452])
+1 - |<evec@pre, evec>| after 1 iterations: 0.121690
+|evec - evec@pre| after 1 iterations: 0.493335
+
+(eval, evec) on 2 iteration: (2.936960, [0.3824,0.3824,0.8412])
+1 - |<evec@pre, evec>| after 2 iterations: 0.030542
+|evec - evec@pre| after 2 iterations: 0.247150
+
+(eval, evec) on 3 iteration: (3.103961, [0.3906,0.4426,0.8072])
+1 - |<evec@pre, evec>| after 3 iterations: 0.002429
+|evec - evec@pre| after 3 iterations: 0.069704
+
+(eval, evec) on 4 iteration: (3.006841, [ 0.411, 0.411,0.8137])
+1 - |<evec@pre, evec>| after 4 iterations: 0.000730
+|evec - evec@pre| after 4 iterations: 0.038215
+
+(eval, evec) on 5 iteration: (2.988584, [0.4101,0.4045,0.8174])
+1 - |<evec@pre, evec>| after 5 iterations: 0.000029
+|evec - evec@pre| after 5 iterations: 0.007564
+\end{verbatim}
+
+\subsection*{b}
+Next results achived after 3 iteration on $M_3$:
+\begin{verbatim}
+input matrix:
+[ 1, 1, 0]
+[ 3,-1, 0]
+[ 0, 0,-2]
+initial eigenvector: [0.5774,0.5774,0.5774]
+
+(eval, evec) on 1 iteration: (2.000000, [ 0.5774, 0.5774,-0.5774])
+1 - |<evec@pre, evec>| after 1 iterations: 0.666667
+|evec - evec@pre| after 1 iterations: 1.154701
+
+(eval, evec) on 2 iteration: (2.000000, [0.5774,0.5774,0.5774])
+1 - |<evec@pre, evec>| after 2 iterations: 0.666667
+|evec - evec@pre| after 2 iterations: 1.154701
+
+(eval, evec) on 3 iteration: (2.000000, [ 0.5774, 0.5774,-0.5774])
+1 - |<evec@pre, evec>| after 3 iterations: 0.666667
+|evec - evec@pre| after 3 iterations: 1.154701
+
+check (Mu<=>l*u): [1.155,1.155,1.155]<=>[ 1.155, 1.155,-1.155]
+\end{verbatim}
+In this case Power Iteration doesn't converge to solution. Using characteristic equation we can find exact solution for eigenvalues. 
+\begin{equation}
+	det(M_3 - \lambda I) = ... = (\lambda - 2)^2 \cdot (\lambda + 2)
+\end{equation}
+Thus there are 2 eigenvalues for $M_3$: $\lambda_1 = 2$ and $\lambda_2 = -2$, which means, that assumption 5.24 is violated ($\not \exists \lambda_1: \lambda_1 > |\lambda_2|$).
+
+\subsection*{c}
+After 3 steps of power iteration eval converges to next solution
+\begin{verbatim}
+input matrix:
+[-2.5,   6]
+[-0.5,   1]
+initial eigenvector: [0.7071,0.7071]
+
+(eval, evec) on 1 iteration: (-1.664332, [0.9899,0.1414])
+1 - |<evec@pre, evec>| after 1 iterations: 0.200000
+|evec - evec@pre| after 1 iterations: 0.632456
+
+(eval, evec) on 2 iteration: (-1.200556, [-0.9772,-0.2124])
+1 - |<evec@pre, evec>| after 2 iterations: 0.002603
+|evec - evec@pre| after 2 iterations: 1.998698
+
+(eval, evec) on 3 iteration: (-1.083620, [0.9732,  0.23])
+1 - |<evec@pre, evec>| after 3 iterations: 0.000163
+|evec - evec@pre| after 3 iterations: 1.999919
+\end{verbatim}
+The exact solution for $M_3^{-1} = 
+\begin{pmatrix}
+	-2.5 & 6\\
+	-0.5 & 1
+\end{pmatrix}
+$ we can find using characteristic equation: $det(M_3^{-1} - \lambda I) = (\lambda + 1)\cdot (\lambda + 0.5)$.
+the eigenvalue with smallest absolute value for $M_3: \lambda = -1$. The corresponding eigenvector can be computed by solving SLE:
+\begin{equation}
+		(M_3^{-1} - (-1)\cdot I)u = 
+		\begin{pmatrix}
+			-1.5 & 6\\
+			-0.5 & 2
+		\end{pmatrix}
+		u = 0
+\end{equation}
+Taking $u_x = 1$, $u_y = 0.25\cdot u_x = 0.25$.
+\subsection*{d}
+\begin{verbatim}
+input matrix:
+[4,5]
+[6,5]
+initial eigenvector: [0.7071,0.7071]
+
+(eval, evec) on 1 iteration: (9.990590, [0.6332, 0.774])
+1 - |<evec@pre, evec>| after 1 iterations: 0.004963
+|evec - evec@pre| after 1 iterations: 0.099627
+
+(eval, evec) on 2 iteration: (10.000897, [0.6409,0.7676])
+1 - |<evec@pre, evec>| after 2 iterations: 0.000049
+|evec - evec@pre| after 2 iterations: 0.009910
+
+(eval, evec) on 3 iteration: (9.999909, [0.6401,0.7683])
+1 - |<evec@pre, evec>| after 3 iterations: 0.000000
+|evec - evec@pre| after 3 iterations: 0.000992
+
+(eval, evec) on 4 iteration: (10.000009, [0.6402,0.7682])
+1 - |<evec@pre, evec>| after 4 iterations: 0.000000
+|evec - evec@pre| after 4 iterations: 0.000099
+
+(eval, evec) on 5 iteration: (9.999999, [0.6402,0.7682])
+1 - |<evec@pre, evec>| after 5 iterations: 0.000000
+|evec - evec@pre| after 5 iterations: 0.000010
+\end{verbatim}
+Thus after 4 iterations evector of $M_4$ becomes stable up to 3 significant digits.
+Computations for $M_5$:
+\begin{verbatim}
+input matrix:
+[-4,10]
+[ 7, 5]
+initial eigenvector: [0.7071,0.7071]
+
+(eval, evec) on 1 iteration: (10.440307, [0.4472,0.8944])
+1 - |<evec@pre, evec>| after 1 iterations: 0.051317
+|evec - evec@pre| after 1 iterations: 0.320364
+
+(eval, evec) on 2 iteration: (9.582572, [0.6854,0.7282])
+1 - |<evec@pre, evec>| after 2 iterations: 0.042174
+|evec - evec@pre| after 2 iterations: 0.290426
+
+(eval, evec) on 3 iteration: (10.361287, [0.4738,0.8806])
+1 - |<evec@pre, evec>| after 3 iterations: 0.033988
+|evec - evec@pre| after 3 iterations: 0.260722
+
+...
+...
+...
+
+(eval, evec) on 57 iteration: (10.001266, [0.5809, 0.814])
+1 - |<evec@pre, evec>| after 57 iterations: 0.000000
+|evec - evec@pre| after 57 iterations: 0.000891
+
+(eval, evec) on 58 iteration: (9.998860, [0.5815,0.8135])
+1 - |<evec@pre, evec>| after 58 iterations: 0.000000
+|evec - evec@pre| after 58 iterations: 0.000802
+
+(eval, evec) on 59 iteration: (10.001025, [ 0.581,0.8139])
+1 - |<evec@pre, evec>| after 59 iterations: 0.000000
+|evec - evec@pre| after 59 iterations: 0.000722
+
+\end{verbatim}
+Thus only after 59 iterations $M_4$ is stable up to 3 significant digits in eigenvector.
