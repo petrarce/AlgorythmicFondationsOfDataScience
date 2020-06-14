@@ -8,89 +8,77 @@ $X = \begin{Bmatrix}
 	-0.5 & 1 & 0.5
 \end{Bmatrix}$\\
 \\
-By standardizing the matrix, we get the following $X_{std}$ matrix:\\
+By centering the matrix, we get the following $X_{cen}$ matrix:\\
 \\
-$X_{std} = \begin{Bmatrix}
+$X_{cen} = \begin{Bmatrix}
 0 & 0 & 0 \\
-1.28662559 & 0 & 0.5\\
-0.91901828 & 1.58113883 & 1.5\\
--0.91901828 & -1.58113883 & -1.5\\
--1.28662559 & 0 &-0.5
+3.5 & 0 & 0.5\\
+2.5 & 2 & 1.5\\
+-2.5 & -2 & -1.5\\
+-3.5 & 0 &-0.5
 \end{Bmatrix}$\\
 \\
-After standardizing the matrix, our goal is to compute the covariance matrix. We represented it as $C:$\\
+After centering the matrix, our goal is to compute the covariance matrix. We represented it as $C:$\\
 \\
 $C = \begin{Bmatrix}
-1.25 & 0.72654774 & 1.01092011 \\
-0.72654774 & 1.25 & 1.18585412\\
-1.01092011 & 1.18585412 & 1.25\\
+37 & 10 & 11 \\
+10 & 8 & 6\\
+11 & 6 & 5\\
 \end{Bmatrix}$\\
 \\
 The following step was to find the \textbf{eigenvalues} and \textbf{eigenvectors}:
 \begin{verbatim}
-Eigenvalues in descending order:
-3.2107417718560276
-0.5392582281439726
-1.7237068842761345e-17
+Eigenvalues:
+[[-0.0000, 0, 0]
+[0, 6.0000, 0]
+[0, 0, 44.0000]]
 
-Corresponding eigenvectors:
-[[-0.53316412 -0.7908806  -0.30040623]
-[-0.57364312  0.59894778 -0.55874424]
-[-0.62182762  0.12557641  0.77302068]]
+Eigenvectors:
+[[-0.1231 -0.4082  -0.9045]
+[-0.4924  0.8165 -0.3015]
+[0.8616  0.4082  -0.3015]]
 
 \end{verbatim}
-Also, the variance captured by each component was computed:
-\begin{verbatim}
-Variance captured by each component is 
-[85.6197805828274, 14.380219417172604, -4.596551691403025e-16]
-\end{verbatim}
-Thus, we can see that PC1 has around \textbf{85\%} of contribution, while PC2 has a contribution of approximately \textbf{14\%}. With that, the dimension reduction can be started. A matrix $W$ will be created accordingly to the desired dimension.
 
 \subsection{Reducing for 2-Dim}
 The $W$ for the new 2-dimensional space:\\
 \\
 $W = \begin{Bmatrix}
--0.53316412 & -0.7908806\\
--0.57364312 & 0.59894778\\
--0.62182762 & 0.12557641
+-0.9045 & -0.4082\\
+-0.3015 & 0.8165\\
+-0.3015 & 0.4082
 \end{Bmatrix}$\\
 \\
-By right multiplying it with $X_{std}$ we get:\\ 
+By right multiplying it with $X_{cen}$ we get:\\ 
 \\
-$X_{2-dim}$ = $X_{std}*W$ = $\begin{Bmatrix}
+$X_{2-dim}$ = $X_{cen}*W$ = $\begin{Bmatrix}
 0 & 0\\
--0.99689641 & -0.95477901\\
--2.32973842 & 0.40855049\\
-2.32973842 & -0.40855049\\
-0.99689641 & 0.95477901
+-3.3166 & -1.2247\\
+-3.3166 & 1.2247\\
+3.3166 & -1.2247\\
+3.3166 & 1.2247
 \end{Bmatrix}$
 \\
-\textbf{Graphic representation:}\\
-\includegraphics[scale = 0.8, width=\textwidth]{graphic2}
 
 \subsection{Reducing for 1-Dim}
 The $W$ for the new 1-dimensional space:\\
 \\
 $W = \begin{Bmatrix}
--0.53316412\\
--0.57364312\\
--0.62182762
+-0.9045\\
+-0.3015\\
+-0.3015
 \end{Bmatrix}$\\
 \\
 By right multiplying it with $X_{std}$ we get:\\ 
 \\
-$X_{1-dim}$ = $X_{std}*W$ = $\begin{Bmatrix}
-0\\
--0.99689641\\
--2.32973842\\
-2.32973842\\
-0.99689641
+$X_{1-dim}$ = $X_{cen}*W$ = $\begin{Bmatrix}
+-3.3166\\
+-6.6332\\
+-6.6332\\
+0.0000\\
+-0.0000
 \end{Bmatrix}$
 \\
-\textbf{Graphic representation}:
-\\
-\includegraphics[scale = 0.8, width=\textwidth]{graphic1}
-
 
 
 
