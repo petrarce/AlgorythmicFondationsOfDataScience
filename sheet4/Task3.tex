@@ -104,15 +104,15 @@ initial eigenvector: [0.7071,0.7071]
 1 - |<evec@pre, evec>| after 3 iterations: 0.000163
 |evec - evec@pre| after 3 iterations: 1.999919
 \end{verbatim}
-The exact solution for $M_3^{-1} = 
+The exact solution for $M_1^{-1} = 
 \begin{pmatrix}
 	-2.5 & 6\\
 	-0.5 & 1
 \end{pmatrix}
-$ we can find using characteristic equation: $det(M_3^{-1} - \lambda I) = (\lambda + 1)\cdot (\lambda + 0.5)$.
-the eigenvalue with smallest absolute value for $M_3: \lambda = -1$. The corresponding eigenvector can be computed by solving SLE:
+$ we can find using characteristic equation: $det(M_1^{-1} - \lambda I) = (\lambda + 1)\cdot (\lambda + 0.5)$.
+the eigenvalue with smallest absolute value for $M_1: \lambda = -1$. The corresponding eigenvector can be computed by solving SLE:
 \begin{equation}
-		(M_3^{-1} - (-1)\cdot I)u = 
+		(M_1^{-1} - (-1)\cdot I)u = 
 		\begin{pmatrix}
 			-1.5 & 6\\
 			-0.5 & 2
