@@ -1,0 +1,142 @@
+% This LaTeX was auto-generated from MATLAB code.
+% To make changes, update the MATLAB code and export to LaTeX again.
+
+MC matrix Q will have next shape: $Q=\left(\begin{array}{cccc}
+a & b & c & 0\\
+1/2 & 0 & 1/4 & d\\
+3/4 & e & 0 & f\\
+0 & g & h & i
+\end{array}\right)$.Taking into account, that $\pi_i =\sum_j \pi_j *Q_{ji}$, and $\sum_i Q_{ji} =1$ we can formulate linear system:\\
+$\left(\begin{array}{ccccccccc}
+1/2*a & + & 1/12*1/2 & + & 1/4*3/4 & + & 1/6*0 & = & 1/2\\
+1/2*b & + & 1/12*0 & + & 1/4*e & + & 1/6*g & = & 1/12\\
+1/2*c & + & 1/12*1/4 & + & 1/4*0 & + & 1/6*h & = & 1/4\\
+1/2*0 & + & 1/12*d & + & 1/4*f & + & 1/6*i & = & 1/6\\
+a & + & b & + & c &  &  & = & 1\\
+1/2 & + & 1/4 &  &  & + & d & = & 1\\
+3/4 & + & e & + & f &  &  & = & 1\\
+g & + & h & + & i &  &  & = & 1
+\end{array}\right)$. 
+
+After all system of linear equations can be formed, with coefficient matrix A for unknowns (a,b,c,d,e,f,g,h,i) and right hand side vector b:
+
+\begin{verbatim}
+A = [   1/2 0   0   0       0   0   0   0   0; 
+        0   1/2 0   0       1/4 0   1/6 0   0; 
+        0   0   1/2 0       0   0   0   1/6 0; 
+        0   0   0   1/12    0   1/4 0   0   1/6; 
+        1   1   1   0       0   0   0   0   0; 
+        0   0   0   1       0   0   0   0   0; 
+        0   0   0   0       1   1   0   0   0; 
+        0   0   0   0       0   0   1   1   1];
+
+b = [   1/2 - 1/12 * 1/2 - 1/4 * 3/4; 
+        1/12; 
+        1/4 - 1/12 * 1/4; 
+        1/6; 
+        1; 
+        1 - 1/2 - 1/4; 
+        1 - 3/4; 
+        1];
+
+\end{verbatim}
+
+Thus solving system Ax = b should give us the solution of a,b,c,d,e,f,g,h,i.
+
+\begin{verbatim}
+rank(A)
+ans = 7
+
+rank([A b])
+ans = 7
+\end{verbatim}
+
+As soon, as rank of of coefficient matrix and rank of extended coefficient matrix are equal and less, then number of unknowns, there are infinite number of solutions of SLE. However as a requirement we need all coefficients to be \textgreater{}0. Thus we can find solution by solving optimization problem with arbitrary function and next constraints equations:
+
+$$\begin{array}{l}
+min(f^T x) \text{ with constraints}\\
+Ax=b\\
+-Ix < 0
+\end{array}$$
+
+We are not interested in function, that we optimize, thus we set all coefficients of the function to 0. What we are intereste is to find any solution, satisfying constraints.
+
+\begin{verbatim}
+f = zeros(1,9);
+%build negative identity for a,b,c,d,e,f,g,h,i > 0 restriction
+Aleq = -eye(9, 9);
+bleq = zeros(9,1) - 0.01;
+%solve optimisation problem
+linprog(f, Aleq, bleq, A, b)
+\end{verbatim}
+\begin{verbatim}
+Optimal solution found.
+ans = 9x1    
+    0.5417
+    0.0433
+    0.4150
+    0.2500
+    0.2400
+    0.0100
+    0.0100
+    0.1300
+    0.8600
+
+\end{verbatim}
+
+Modifying lower bound of the coefficients will give different solution, satisfying equations:
+
+\begin{verbatim}
+bleq = zeros(9,1) - 0.02;
+sol = linprog(f, Aleq, bleq, A, b)
+\end{verbatim}
+\begin{verbatim}
+Optimal solution found.
+sol = 9x1    
+    0.5417
+    0.0450
+    0.4133
+    0.2500
+    0.2300
+    0.0200
+    0.0200
+    0.1350
+    0.8450
+
+\end{verbatim}
+
+Checking the solution:
+
+\begin{verbatim}
+Q = [
+    sol(1)  sol(2)  sol(3)  0;
+    1/2     0       1/4     sol(4);
+    3/4     sol(5)  0       sol(6);
+    0       sol(7)  sol(8)  sol(9);
+];
+
+pi = [1/2 1/12 1/4 1/6] = [0.5000    0.0833    0.2500    0.1667]
+
+\end{verbatim}
+\begin{verbatim}
+pi*Q = [0.5000    0.0833    0.2500    0.1667]
+
+\end{verbatim}
+
+Thus one of the solutions for the probability matrix is $ Q = 
+\begin{pmatrix}
+0.5417 & 0.0450 & 0.4133 & 0\\
+1/2 & 0 & 1/4 & 0.2500\\
+3/4 & 0.2300 & 0 & 0.0200\\
+0 & 0.0200 & 0.1350 & 0.8450
+\end{pmatrix}
+$
+    
+    
+    
+    
+    
+    
+    
+    
+    
