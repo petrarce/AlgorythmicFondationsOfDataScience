@@ -1,0 +1,34 @@
+\subsection*{a}
+MAP:\\
+\begin{algorithm}[H]
+ \KwData {$(P_A, F_A)$ where $P_A$ - person A, $F_A$ - set of friends of A}
+ \KwResult{ $\forall P_N \in F_A:\text{ emit }(\{P_A, P_N\}, F_A/P_N)$. Note, that keys are designed so, that $\{P_A, P_B\} = \{P_B, P_A\}$}
+\end{algorithm}.\\
+REDUCE:\\
+\begin{algorithm}[H]
+ \KwData {$(\{P_A, P_B\}, \{F_1, F_2\})$}
+ \KwResult{emit $(\{P_A, P_B\}, F_1 \cap F_2$)}
+\end{algorithm}
+
+\subsection*{b}
+MAP:\\
+\begin{algorithm}[H]
+ \KwData {$(P_A, F_A)$ where $P_A$ - person A, $F_A$ - set of friends of A}
+ \KwResult{ $\forall P \in F_A: \text{ emit } (P, \{P_A, F_A/P\}) \text{. Additionally emit } (P_A, \{P_A, F_A\})$}
+\end{algorithm}.\\
+REDUCE:\\
+\begin{algorithm}[H]
+\KwData {$(P_N, values)$}
+\KwResult{ emit $(P_N, F_{sugested})$}
+\Begin{
+	find $(P_k, F_k) \in values$ such that $P_N = P_k$\;
+	$values = values \setminus (P_k, F_k)$\;
+	\While {$size(F_{sugested}) < 10 \text{ and }  !empty(values)$} {
+		Pick $(P_i, F_i) \in values$ randomly\;
+		$values = values \setminus (P_i, F_i)$\;
+		\If {$size(F_i \setminus F_k) > 0$} {
+			append $F_{sugested}$ with first friend in $F_i \setminus F_k$\;
+		}
+	}
+}
+\end{algorithm}
