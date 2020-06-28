@@ -1,0 +1,4 @@
+As soon, as nodes are independent workers, then $E(R) = n \cdot E(R_1)$, where $R_1$ - total runtime of one node.\\
+$E(R_1) = t + 10\cdot t \cdot E(N_f)$, where $E(N_f)$ - expected number of failed nodes.\\
+$E(N_f) = 1 \cdot p_f + 1 \cdot p_f^2 +... = \sum_{k = 1}^{\infty} p_f^k = \sum_{k = 0}^{\infty - 1} p_f\cdot p_f^k = \dfrac{p_f}{1 - p_f}$ (sum of infinite geometric progression with $p_f \in [0, 1)$).\\
+Thus $E(R) = n\cdot (t + 10 \cdot t \cdot \dfrac{p_f}{1 - p_f})$
