@@ -1,0 +1,29 @@
+\textbf{(a)}\\
+ V(H)= All independent sets of graph \\
+E(H)= Edge of H is $(I,I_{v})$ such that for all v $\in $V(G)  \\
+\[
+  I_{v} =
+  \begin{cases}
+                                   I \cup \{v\} & \text{if v is independent of I} \\
+                                   I \cup \{v\} \backslash \{w\} & \text{if (v,w) $\in$ E(G) and V is independent of  I \textbackslash \{w\}} \\
+  				I \backslash \{v\}  & \text{if v $\in I_{i}$ }\\
+				undefined 
+  \end{cases}
+\]
+
+
+
+\textbf{(b)}\\ $\triangle$ is given by n= $\mid V(G) \mid $. Since $\phi \in I_{G}$, by deleting all nodes it can be reached and hence the graph is connected. \\
+
+\textbf(c)\\
+ Let Z= $\mid I_{G}$ \\
+Given P is a uniform distribution on $I_{G}, P(I)=1/Z $\\
+D(I)= Z. P(Z) =1 \\
+\[
+ q_{i,j} =
+  \begin{cases}
+                                   1/n & \text{if J=$ I_{v}$ for some v $\in $V(G)} \\
+                                   (n- \mid N^{H}(I)\mid) \div n & \text{if i=j} \\
+  			0  & \text{otherwise}
+  \end{cases}
+\]
