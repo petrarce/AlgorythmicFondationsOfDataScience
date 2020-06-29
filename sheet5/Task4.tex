@@ -1,17 +1,14 @@
 To prove : The stationary distribution of the Markov chain with transition matrix Q is P.\\
-Setting up the sample probability space (U,P) such that we have a functional value D =ZP we need to prove that\\
-$D(u)q_{uv}$=$D(v)q_{vu4}$. \\
+Setting up the sample probability space (U,P) such that we have a functional value $D(x) =ZP(x)$ we need to prove that
+$D(u)q_{uv}$=$D(v)q_{vu}$. \\
 For u=v, the result holds as trivial. \\
-If u and v differ in atleast 2 coordinates , $q_{uv}=0 $and the result still holds true.
-If u and v differ only by one coordinate, then $q_{uv}$ is given by  $q_{uv}$=  $  1/l . P(v_{i} | u_{1}, u_{2}... u{l})$ \\
-$D(u).q_{uv}$= D(u). 1/\emph{l} $\cdot$ $P(v_{i} | u_{1}, u_{2}... u_{l} )$ \\ 
-$\implies $  D(u).$q_{uv}$= D(u). 1/\emph{l} . $$(\frac{D(v)}{ \sum_{0 \in D} D(u_{1}, ..0...u_{l})})$$  \\
-Likewise, \\
-D(v).$q_{vu}$= D(v). 1/l $\cdot$ $$(\frac{D(u)}{\sum_{0 \in D} D(v_{1}, ..0...v_{l})})$$  \\
-Also, for every i $\neq$ j ,$ v_{i}= u_{j}$ or $ v_{j}=u_{j}$ \\
-We have,\\
-$$\sum_{0 \in D} D(u_{1}, ..0...u_{l})$$ =  $$\sum_{0 \in D} D(v_{1}, ..0...v_{l})$$ = S  \\
-
-Thus, D(u).$q_{uv}$= D(u). 1/l. D(v)/S = D(v) .1/l . D(u)/S = D(v).$q_{vu}$.\\
-By Lemma ,6.4, for a probability vector r satisfying $r_{i}$ .$q_{ij}$=$r_{j}.q{ji}$ for a transition matrix Q of Markov chain, r is a stationary distribution. Hence, Proved.
+If u and v differ in atleast 2 coordinates , $q_{uv} = q_{vu}=0$ and the result still holds true.\\
+If u and v differ only by one coordinate, then $q_{uv}$ is given by  $q_{uv}$=  $  \dfrac{1}{l} \cdot P(v_{i} | u_{1}, u_{2}... u{l})$ \\
+$D(u)\cdot q_{uv} = D(u)\cdot \dfrac{1}{l} \cdot P(v_{i} | u_{1}, u_{2}... u_{l} ) = 
+ D(u)\cdot \dfrac{1}{l}\cdot \left(\frac{D(v)}{ \sum_{o \in \mathbb{D}} D(u_{1}, ..., u_{i-1}, o, u_{i+1}, ...,u_{l})}\right)$\\
+ Likewise: $D(v)\cdot q_{vu} = D(v) \cdot \dfrac{1}{l} \cdot \dfrac{D(u)}{\sum_{o \in \mathbb{D}} D(v_{1}, .., v_{i-1}, o,v_{i+1}, ...v_{l})})$  \\
+Since $\forall j \neq i: v_{j} = u_{j} \text{(where i is a position, in which v and u differ)}\implies$\\
+$ \sum_{o \in \mathbb{D}} D(u_{1}, .., u_{i-1}, o, u_{i+1},...u_{l}) =  \sum_{o \in \mathbb{D}} D(v_{1}, ..v_{i-1}, o,v_{i+1},...v_{l}) = S$.\\
+From here, $D(u) \cdot q_{uv} = D(u)\cdot  \dfrac{1}{l}\cdot  \dfrac{D(v)}{S} = D(v) \cdot \dfrac{1}{l} \cdot  \dfrac{D(u)}{S} = D(v)\cdot q_{vu}$.\\
+Thus by lemma, 6.4 P is a stationary distribution of Markov-Chain, defined by Q.
 
