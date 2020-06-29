@@ -13,17 +13,18 @@ E(H)= Edge of H is $(I,I_{v})$ such that for all v $\in $V(G)  \\
 
 
 
-\textbf{(b)}\\ $\triangle$ is given by n= $\mid V(G) \mid $. Since $\phi \in I_{G}$, by deleting all nodes it can be reached and hence the graph is connected. \\
+\textbf{(b)}\\ Since maximum number of additions and substraction of vertices is bounded by $|V(G)|$ 
+and number of transitions from empty set is exactly $|V(G)|$  then $\Delta = n = \mid V(G) \mid $. 
+Since $\emptyset \in \mathbb{I}_{G}$, and 
+$\forall I \in \mathbb{I}_G : \emptyset \text{ can by reached form $I$ by deleting all nodes, thus $H$ is connected}$. \\
 
 \textbf(c)\\
- Let Z= $\mid I_{G}$ \\
-Given P is a uniform distribution on $I_{G}, P(I)=1/Z $\\
-D(I)= Z. P(Z) =1 \\
+Taking that $\forall I\in \mathbb{I}_G: D(I) = 1$, according to Metropolis-Hastings, probability distributions will look this way: \\
 \[
- q_{i,j} =
+ q_{I,\hat{I}} =
   \begin{cases}
-                                   1/n & \text{if J=$ I_{v}$ for some v $\in $V(G)} \\
-                                   (n- \mid N^{H}(I)\mid) \div n & \text{if i=j} \\
+                                   \dfrac{1}{n} & \text{if $I \neq \hat{I}$} \\
+                                   \dfrac{(n- \mid N_{H}(I)\mid)} {n} & \text{if $I = \hat{I}$} \\
   			0  & \text{otherwise}
   \end{cases}
 \]
