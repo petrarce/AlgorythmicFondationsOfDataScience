@@ -1,0 +1,8 @@
+\subsection*{Almost uniformity}
+$Pr(h_a(x) = t) = Pr(f_a(x) = y \mod M)$. 
+There are totally $q$ variants of picking $y$, and at most $\lceil{\dfrac{q}{M}}\rceil$ 
+of variants of y to satisfy $h_a(x) = y \mod M$. 
+Thus $	Pr(h_a = t) \leq \dfrac{1}{q}\cdot \lceil{\dfrac{q}{M}}\rceil \leq 
+		\dfrac{1}{q}\cdot \dfrac{q - 1 + M}{M} = \dfrac{q - 1 + M}{q\cdot M}$.
+Subtracting $\dfrac{1}{M}$ from both sides we will have:\\
+ $	Pr(h_a = t) - \dfrac{1}{M} \leq \dfrac{q - 1 + M}{q\cdot M} - \dfrac{1}{M} = \dfrac{M - 1}{q\cdot M}\leq \dfrac{M}{q\cdot M} = \dfrac{1}{q}$.

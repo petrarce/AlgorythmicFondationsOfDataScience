@@ -1,0 +1,50 @@
+\subsection*{a}
+\begin{verbatim}
+stream: 3 1 4 1 5 9 2 6 5 
+hash function: (2*x + 1)%32
+zeros(hf(3)=7) = 0
+zeros(hf(1)=3) = 0
+zeros(hf(4)=9) = 0
+zeros(hf(1)=3) = 0
+zeros(hf(5)=11) = 0
+zeros(hf(9)=19) = 0
+zeros(hf(2)=5) = 0
+zeros(hf(6)=13) = 0
+zeros(hf(5)=11) = 0
+estimated number of different elements:1.414214
+\end{verbatim}
+As can be seen all values of hash function will allvays be odd ($\forall x \in \mathbb{Z}: 2x\text{ - even, }2x+1\text{ - odd, }2x+1\mod32\text{ - odd}$) thus $zeros(h(x))$ will always return 0 and FMA will always return $2^{0 + 0.5}=1.414214$. This version of hash function is bad for FMA estimator.
+
+\subsection*{b}
+\begin{verbatim}
+stream: 3 1 4 1 5 9 2 6 5 
+hash function: (3*x + 7)%32
+zeros(hf(3)=16) = 4
+zeros(hf(1)=10) = 1
+zeros(hf(4)=19) = 0
+zeros(hf(1)=10) = 1
+zeros(hf(5)=22) = 1
+zeros(hf(9)=2) = 1
+zeros(hf(2)=13) = 0
+zeros(hf(6)=25) = 0
+zeros(hf(5)=22) = 1
+estimated number of different elements:22.627417
+\end{verbatim}
+Hash function $(3*x + 7)\%32$ is better estimator while it can return odd and even valuations.
+
+\subsection*{c}
+\begin{verbatim}
+stream: 3 1 4 1 5 9 2 6 5 
+hash function: (4*x + 0)%32
+zeros(hf(3)=12) = 2
+zeros(hf(1)=4) = 2
+zeros(hf(4)=16) = 4
+zeros(hf(1)=4) = 2
+zeros(hf(5)=20) = 2
+zeros(hf(9)=4) = 2
+zeros(hf(2)=8) = 3
+zeros(hf(6)=24) = 3
+zeros(hf(5)=20) = 2
+estimated number of different elements:22.627417
+\end{verbatim}
+Hash function $(4*x + 0)\%32$ is also better estimator that $h_1$, but worth, than $h_2$, while can return only even valuations.
