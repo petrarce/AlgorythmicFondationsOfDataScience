@@ -16,8 +16,8 @@ int TOW(const vector<int>& stream)
 	for(auto val : stream)
 	{
 		i++;
-		fprintf(stderr, "step %d: x = x + h(%d) = %d + %d = %d\n", i, val, x, hf[val], x + hf[val]);
-		x += hf[val];
+		fprintf(stderr, "step %d: x = x + h(%d) = %d + %d = %d\n", i, val, x, hf[val-1], x + hf[val-1]);
+		x += hf[val-1];
 	}
 
 	fprintf(stderr, "TOW B estimator: B=%d\n", x*x);
